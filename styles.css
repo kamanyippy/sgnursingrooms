@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.search-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.list-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#nursingRoomsList {
+    list-style: none;
+    padding: 0;
+}
+
+.nursing-room {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nursing-room h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.nursing-room p {
+    margin: 5px 0;
+}
+
+.nursing-room p strong {
+    display: inline-block;
+    width: 120px;
+}
+/* Optional: style icons for better spacing */
+.nursing-room p strong + span {
+    margin-left: 5px;
+}
