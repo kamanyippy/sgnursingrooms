@@ -20,22 +20,33 @@ function displayRooms(data) {
     data.forEach(room => {
         if (!room.Name) return;
         
-        const amenities = room.Amenities.split(';').map(item => item.trim());
+        const amenities = room.Amenities ? room.Amenities.split(';').map(item => item.trim().toLowerCase()) : [];
 
         const card = document.createElement('div');
         card.className = 'card';
+
+        const amenitiesIcons = [];
+      
+        if (amenities.includes('diaper')) {
+            amenitiesIcons.push('<span class="material-icons icon">baby_changing_station</span>');
+        }
+        if (amenities.includes('sofa')) {
+            amenitiesIcons.push('<span class="material-icons icon">chair</span>');
+        }
+        if (amenities.includes('sink')) {
+            amenitiesIcons.push('<span class="material-icons icon">countertops</span>');
+        }
+        if (amenities.includes('hot-water')) {
+            amenitiesIcons.push('<span class="material-icons icon">local_drink</span>');
+        }
+
         card.innerHTML = `
             <h2>${room.Name}</h2>
-            <p><strong>Location:</strong> ${room.Location || 'Not Available'}</p>
+            <p><strong>Locations:</strong> ${room.Location || 'Not Available'}</p>
             <p><strong>Address:</strong> ${room.Address || 'Not Available'}</p>
-            <p><strong>Website:</strong> <a href="${room.Website || '#'}" target="_blank">${room.Website || 'No Website'}</a></p>
-            <div>
-                <span class="material-icons icon">${amenities.includes('diaper') ? 'baby_changing_station' : ''}</span>
-                <span class="material-icons icon">${amenities.includes('sofa') ? 'chair' : ''}</span>
-                <span class="material-icons icon">${amenities.includes('sink') ? 'faucet' : ''}</span>
-                <span class="material-icons icon">${amenities.includes('hot-water') ? 'local_drink' : ''}</span>
-               
-            </div>
+            <p><strong>Amenities available:</strong></p>
+                       <div>${amenitiesIcons.join('')}</div>
+            <p><strong>Condition:</strong> ${room.Condition || 'Not Available'}</p>
         `;
         container.appendChild(card);
     });

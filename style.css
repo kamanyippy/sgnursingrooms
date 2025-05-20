@@ -1,13 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: tahoma; 
     margin: 0;
     padding: 20px;
-    background-color: #FAE3C6;
+    background-image: url("cloud.jpg");
     text-align: center;
 }
 
 h1 {
-    color: #533B4D;
+    color: #6c3f61;
+}
+
+h2 {
+    color:#533B4D;
+    text-align: left;
+}
+
+#search {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #514749;
+    border-radius: 4px;
+    background-color:#fdebd5;
 }
 
 #nursing-rooms {
@@ -19,7 +34,7 @@ h1 {
 
 .card {
     background-color: #FAA4BD;
-    width: 700px;
+    width: 60%;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
@@ -35,5 +50,5 @@ h1 {
 .icon {
     vertical-align: middle;
     color: #533B4D;
-    padding: 0px;
+    padding: 2px;
 }
