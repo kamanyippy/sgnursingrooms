@@ -1,5 +1,6 @@
 body {
     font-family: tahoma; 
+    font-size: smaller;
     margin: 0;
     padding: 20px;
     background-image: url("cloud.jpg");
@@ -8,6 +9,20 @@ body {
 
 h1 {
     color: #6c3f61;
+    margin-bottom: 20px;
+}
+
+#feedback-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-size: small;
+    color: #6c3f61;
+}
+
+#feedback-link:hover {
+    text-decoration: underline;
 }
 
 h2 {
@@ -33,7 +48,7 @@ h2 {
 }
 
 .card {
-    background-color: #FAA4BD;
+    background-color: #f8b1c5;
     width: 60%;
     margin-bottom: 20px;
     padding: 20px;
@@ -51,4 +66,44 @@ h2 {
     vertical-align: middle;
     color: #533B4D;
     padding: 2px;
+}
+
+form {
+    margin: 0 auto;
+    background-color: #f8b1c5;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #6c3f61;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #603956;
 }

@@ -52,10 +52,14 @@ function displayRooms(data) {
     });
 }
 
-    function filterRooms() {
-      const searchTerm = document.getElementById('search').value.toLowerCase();
-      console.log('Search Term:', searchTerm);
-      const filtered = roomsData.filter(r => r.Name && r.Name.toLowerCase().includes(searchTerm));
-      console.log('Filtered:', filtered);
-      displayRooms(filtered);
+   function filterRooms() {
+    const searchTerm = document.getElementById('search').value.toLowerCase();
+    const filtered = roomsData.filter(r => r.Name && r.Name.toLowerCase().includes(searchTerm));
+    
+    if (filtered.length === 0) {
+        document.getElementById('nursing-rooms').innerHTML = `<p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="feedback.html">Send us a message</a> on the locations you wish to see!</p>`;
+    } else {
+        displayRooms(filtered);
     }
+}
+
