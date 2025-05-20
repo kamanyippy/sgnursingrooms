@@ -1,54 +1,37 @@
-const nursingRooms = [
-    {
-        name: "VivoCity",
-        location: "HarbourFront",
-        address: "1 HarbourFront Walk, #01-146/147, Singapore 098585",
-        contact: "6272 0078",
-        amenities: ["sofa", "hot-water", "diaper"]
-    },
-    {
-        name: "Marina Bay Sands",
-        location: "Marina Bay",
-        address: "10 Bayfront Ave, Tower 1, Level 2, Singapore 018956",
-        contact: "6688 8826",
-        amenities: ["hot-water", "diaper"]
-    },
-    {
-        name: "Changi Airport Terminal 3",
-        location: "Changi Airport",
-        address: "Changi Airport Terminal 3, Level 3, Singapore 819663",
-        contact: "6542 2922",
-        amenities: ["sofa", "hot-water"]
-    },
-    {
-        name: "VivoCity Sky Park",
-        location: "HarbourFront",
-        address: "VivoCity, 1 HarbourFront Walk, Singapore 098585",
-        contact: "6272 0008",
-        amenities: ["sofa", "diaper"]
-    }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    Papa.parse('nursing_rooms.csv', {
+        download: true,
+        header: true,
+        dynamicTyping: true, // Treat boolean-like strings as booleans
+        complete: function(results) {
+            console.log(results.data); // Debug: Check the parsed data
+            displayRooms(results.data);
+        }
+    });
+});
 
-const amenityIcons = {
-    "sofa": "<i class='fas fa-couch' title='Sofa'></i>",
-    "hot-water": "<i class='fas fa-hot Tub' title='Hot Water'></i>",
-    "diaper": "<i class='fas fa-baby' title='Diaper Change Area'></i>"
-};
+function displayRooms(data) {
+    const container = document.getElementById('nursing-rooms');
+    data.forEach(room => {
+        if (!room.Name) return; // Skip if there's no name (possibly empty row)
+        
+        const amenities = room.Amenities.split(';').map(item => item.trim());
 
-const listContainer = document.getElementById('nursingRoomsList');
-const searchInput = document.getElementById('searchInput');
-
-function displayNursingRooms(filterText = "") {
-    listContainer.innerHTML = "";
-    const filteredRooms = nursingRooms.filter(room =>
-        room.location.toLowerCase().includes(filterText.toLowerCase())
-    );
-
-    if (filteredRooms.length === 0) {
-        listContainer.innerHTML = "<li>No nursing rooms found.</li>";
-        return;
-    }
-
-    filteredRooms.forEach(room => {
-        const li = document.createElement('li');
-        li.className = "n
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h2>${room.Name}</h2>
+            <p><strong>Location:</strong> ${room.Location || 'Not Available'}</p>
+            <p><strong>Address:</strong> ${room.Address || 'Not Available'}</p>
+            <p><strong>Website:</strong> <a href="${room.Website || '#'}" target="_blank">${room.Website || 'No Website'}</a></p>
+            <div>
+                <span class="material-icons icon">${amenities.includes('diaper') ? 'baby_changing_station' : ''}</span>
+                <span class="material-icons icon">${amenities.includes('sofa') ? 'chair' : ''}</span>
+                <span class="material-icons icon">${amenities.includes('sink') ? 'faucet' : ''}</span>
+                <span class="material-icons icon">${amenities.includes('hot-water') ? 'local_drink' : ''}</span>
+               
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}

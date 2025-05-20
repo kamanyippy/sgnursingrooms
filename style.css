@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #FAE3C6;
+    text-align: center;
+}
+
+h1 {
+    color: #533B4D;
+}
+
+#nursing-rooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background-color: #FAA4BD;
+    width: 700px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #533B4D;
+}
+
+.icon {
+    vertical-align: middle;
+    color: #533B4D;
+    padding: 0px;
+}
