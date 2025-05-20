@@ -1,19 +1,24 @@
+let roomsData = [];
+
+document.getElementById('search').addEventListener('keyup', filterRooms);
+
 document.addEventListener('DOMContentLoaded', function() {
     Papa.parse('nursing_rooms.csv', {
         download: true,
         header: true,
-        dynamicTyping: true, // Treat boolean-like strings as booleans
+        dynamicTyping: true,
         complete: function(results) {
-            console.log(results.data); // Debug: Check the parsed data
-            displayRooms(results.data);
+            roomsData = results.data;  // Store the data for filtering
+            displayRooms(roomsData);
         }
     });
 });
 
 function displayRooms(data) {
     const container = document.getElementById('nursing-rooms');
+     container.innerHTML = ''; // Clear existing rooms
     data.forEach(room => {
-        if (!room.Name) return; // Skip if there's no name (possibly empty row)
+        if (!room.Name) return;
         
         const amenities = room.Amenities.split(';').map(item => item.trim());
 
@@ -35,3 +40,11 @@ function displayRooms(data) {
         container.appendChild(card);
     });
 }
+
+    function filterRooms() {
+      const searchTerm = document.getElementById('search').value.toLowerCase();
+      console.log('Search Term:', searchTerm);
+      const filtered = roomsData.filter(r => r.Name && r.Name.toLowerCase().includes(searchTerm));
+      console.log('Filtered:', filtered);
+      displayRooms(filtered);
+    }
