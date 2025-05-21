@@ -1,15 +1,5 @@
-footer {
-    color: #5e5e5e;
-    padding: 10px 0;
-    text-align: center;
-    bottom: 0;
-    width:100%;
-    font-size: 12px;
-    
-}
-
 body {
-    font-family: tahoma; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
     font-size: smaller;
     margin: 0;
     padding: 20px;
@@ -22,6 +12,7 @@ body {
 h1 {
     color: #7F55B1;
     margin-bottom: 20px;
+    
 }
 
 .form-btn {
@@ -40,11 +31,6 @@ h1 {
 
 .form-btn:hover {
     background-color: #533B4D;
-}
-
-h2 {
-    color:#7F55B1;
-    text-align: left;
 }
 
 #search {
@@ -68,6 +54,7 @@ h2 {
 .card {
     background-color: #ededed;
     width: 50%;
+    max-width:700px;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
@@ -79,6 +66,13 @@ h2 {
 .card h2 {
     margin-top: 0;
     color: #9B7EBD;
+}
+
+.card-content {
+    width: 100%;
+    max-width: 50%;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .icon {
@@ -102,4 +96,18 @@ h2 {
     font-weight: bold;
 }
 
+footer {
+    color: #5e5e5e;
+    padding: 10px 0;
+    text-align: center;
+    bottom: 0;
+    width:100%;
+    font-size: 12px;
+    
+}
 
+@media (min-width: 768px) {
+    .card {
+        display: flex;
+    }
+}
