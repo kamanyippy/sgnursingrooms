@@ -109,10 +109,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .card {
-        display: flex;
-    }
-
+    
      .form-btn {
         position: static; 
         margin: 10px auto;
@@ -122,6 +119,6 @@ footer {
     }
 
     h1 {
-        margin-top: 10px; /* Ensure there is space between elements */
+        margin-top: 10px; 
     }
 }
