@@ -25,12 +25,14 @@ h1 {
     color:#ededed;
     border: 1px solid #858585;
     border-radius: 4px;
-    padding: 8px 8px; 
+    padding: 8px 16px; 
     box-shadow: 0 5px 6px rgba(36, 35, 35, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .form-btn:hover {
-    background-color: #533B4D;
+    background-color: #6a3f99;
+    box-shadow: 0 8px 10px rgba(36, 35, 35, 0.15);
 }
 
 #search {
@@ -106,8 +108,15 @@ footer {
     
 }
 
-@media (min-width: 768px) {
+@media (max-width: 480px) {
     .card {
         display: flex;
+    }
+
+     .form-btn {
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px; /* Larger padding for easier tapping */
+        font-size: medium;
     }
 }
