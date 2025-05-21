@@ -20,36 +20,42 @@ body {
 }
 
 h1 {
-    color: #6c3f61;
+    color: #7F55B1;
     margin-bottom: 20px;
 }
 
-#feedback-link {
+.form-btn {
     position: absolute;
     top: 20px;
     right: 20px;
     text-decoration: none;
     font-size: small;
-    color: #6c3f61;
+    background-color: #7F55B1;
+    color:#ededed;
+    border: 1px solid #858585;
+    border-radius: 4px;
+    padding: 8px 8px; 
+    box-shadow: 0 5px 6px rgba(36, 35, 35, 0.1);
 }
 
-#feedback-link:hover {
-    text-decoration: underline;
+.form-btn:hover {
+    background-color: #533B4D;
 }
 
 h2 {
-    color:#533B4D;
+    color:#7F55B1;
     text-align: left;
 }
 
 #search {
-    width: 50%;
+    width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 1px solid #514749;
+    border: 1px solid #858585;
     border-radius: 4px;
-    background-color:#fdebd5;
+    box-shadow: 0 5px 6px rgba(36, 35, 35, 0.1);
+    background-color:#ededed;
 }
 
 #nursing-rooms {
@@ -60,64 +66,40 @@ h2 {
 }
 
 .card {
-    background-color: #f8b1c5;
-    width: 60%;
+    background-color: #ededed;
+    width: 50%;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 6px rgba(36, 35, 35, 0.1);
     text-align: left;
     
 }
 
 .card h2 {
     margin-top: 0;
-    color: #533B4D;
+    color: #9B7EBD;
 }
 
 .icon {
     vertical-align: middle;
-    color: #533B4D;
+    color: #7F55B1;
     padding: 2px;
 }
 
-form {
-    margin: 0 auto;
-    background-color: #f8b1c5;
-    width: 400px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-
-}
-
-form label {
-    display: block;
-    margin-bottom: 8px;
+.condition-excellent {
+    color: rgb(0, 125, 0);
     font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="email"],
-form textarea {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.condition-good {
+    color: rgb(224, 146, 0);
+    font-weight: bold;
 }
 
-form input[type="submit"] {
-    background-color: #6c3f61;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.condition-average {
+    color: rgb(0, 0, 148);
+    font-weight: bold;
 }
 
-form input[type="submit"]:hover {
-    background-color: #603956;
-}
 

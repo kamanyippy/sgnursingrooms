@@ -22,6 +22,8 @@ function displayRooms(data) {
         
         const amenities = room.Amenities ? room.Amenities.split(';').map(item => item.trim().toLowerCase()) : [];
 
+        const conditionClass = getConditionClass(room.Condition);
+
         const card = document.createElement('div');
         card.className = 'card';
 
@@ -41,15 +43,32 @@ function displayRooms(data) {
         }
 
         card.innerHTML = `
+         <div class="card-content">
             <h2>${room.Name}</h2>
             <p><strong>Locations:</strong> ${room.Location || 'Not Available'}</p>
             <p><strong>Address:</strong> ${room.Address || 'Not Available'}</p>
             <p><strong>Amenities available:</strong></p>
                        <div>${amenitiesIcons.join('')}</div>
-            <p><strong>Condition:</strong> ${room.Condition || 'Not Available'}</p>
-        `;
+             <p><strong>Condition:</strong> <span class="condition-text ${conditionClass}"> ${room.Condition || 'Not Available'}</span></p>
+        </div>
+             `;
         container.appendChild(card);
     });
+
+    }
+
+function getConditionClass(condition) {
+    switch (condition.toLowerCase()) {
+        case 'excellent':
+            return 'condition-excellent';
+        case 'good':
+            return 'condition-good';
+        case 'average':
+            return 'condition-average';
+        default:
+            return '';
+    }
+
 }
 
    function filterRooms() {
@@ -57,7 +76,7 @@ function displayRooms(data) {
     const filtered = roomsData.filter(r => r.Name && r.Name.toLowerCase().includes(searchTerm));
     
     if (filtered.length === 0) {
-        document.getElementById('nursing-rooms').innerHTML = `<p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="feedback.html">Send us a message</a> on the locations you wish to see!</p>`;
+        document.getElementById('nursing-rooms').innerHTML = `<p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="https://forms.gle/9ZRKPiSZsFo2g6xJ8">Send us a message</a> on the locations you wish to see!</p>`;
     } else {
         displayRooms(filtered);
     }
