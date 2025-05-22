@@ -30,16 +30,16 @@ function displayRooms(data) {
         const amenitiesIcons = [];
       
         if (amenities.includes('diaper')) {
-            amenitiesIcons.push('<span class="material-icons icon">baby_changing_station</span>');
+            amenitiesIcons.push('<span class="material-icons icon">baby_changing_station</span> Diaper Changing Station');
         }
         if (amenities.includes('sofa')) {
-            amenitiesIcons.push('<span class="material-icons icon">chair</span>');
+            amenitiesIcons.push('<span class="material-icons icon">chair</span> Seat');
         }
         if (amenities.includes('sink')) {
-            amenitiesIcons.push('<span class="material-icons icon">countertops</span>');
+            amenitiesIcons.push('<span class="material-icons icon">countertops</span> Basin');
         }
         if (amenities.includes('hot-water')) {
-            amenitiesIcons.push('<span class="material-icons icon">local_drink</span>');
+            amenitiesIcons.push('<span class="material-icons icon">local_drink</span>Hot Water Dispenser');
         }
 
         card.innerHTML = `
@@ -76,7 +76,8 @@ function getConditionClass(condition) {
     const filtered = roomsData.filter(r => r.Name && r.Name.toLowerCase().includes(searchTerm));
     
     if (filtered.length === 0) {
-        document.getElementById('nursing-rooms').innerHTML = `<p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="https://forms.gle/9ZRKPiSZsFo2g6xJ8">Send us a message</a> on the locations you wish to see!</p>`;
+        document.getElementById('nursing-rooms').innerHTML = `
+        <p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="https://forms.gle/9ZRKPiSZsFo2g6xJ8">Send us a message</a> on the locations you wish to see!</p>`;
     } else {
         displayRooms(filtered);
     }

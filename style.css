@@ -87,7 +87,8 @@ h1 i {
 .icon {
     vertical-align: middle;
     color: #7F55B1;
-    padding: 2px;
+    margin-right: 2px;
+    margin-left: 5px;
 }
 
 .condition-excellent {
@@ -100,7 +101,7 @@ h1 i {
 }
 
 .condition-good {
-    background-color: rgb(253, 176, 33);
+    background-color: rgb(86, 86, 255);
     color: rgb(255, 255, 255);
     font-weight: normal;
     padding:3px;
@@ -109,7 +110,7 @@ h1 i {
 }
 
 .condition-average {
-    background-color: rgb(86, 86, 255);
+    background-color:rgb(253, 176, 33);
     color: rgb(255, 255, 255);
     font-weight: normal;
     padding:3px;
