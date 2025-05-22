@@ -149,7 +149,8 @@ footer {
     }
 
     .card {
-    width: 90%;   
+    width: 90%;
+    padding: 10px;   
     }
 
 }
