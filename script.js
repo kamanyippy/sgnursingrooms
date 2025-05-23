@@ -49,7 +49,7 @@ function displayRooms(data) {
             <p><strong>Address:</strong> ${room.Address || 'Not Available'}</p>
             <p><strong>Amenities available:</strong></p>
                        <div>${amenitiesIcons.join('')}</div>
-             <p><strong>Condition:</strong> <span class="condition-text ${conditionClass}"> ${room.Condition || 'Not Available'}</span></p>
+             <p><strong>Cleanliness and Upkeep:</strong> <span class="condition-text ${conditionClass}"> ${room.Condition || 'Not Available'}</span></p>
         </div>
              `;
         container.appendChild(card);
@@ -77,7 +77,7 @@ function getConditionClass(condition) {
     
     if (filtered.length === 0) {
         document.getElementById('nursing-rooms').innerHTML = `
-        <p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="https://forms.gle/9ZRKPiSZsFo2g6xJ8">Send us a message</a> on the locations you wish to see!</p>`;
+        <p>Location not found. <br> Please bear with us as we update the information.<br><br> <a href="https://forms.gle/9ZRKPiSZsFo2g6xJ8">Send us feedback</a> on the locations you wish to see!</p>`;
     } else {
         displayRooms(filtered);
     }
